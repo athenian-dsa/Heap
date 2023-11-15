@@ -8,6 +8,8 @@ public class MyTests {
     public static boolean arrayEqualsUpTo(int lastIndexExclusive, int[] arr1, int[] arr2) {
         for (int i = 0; i < lastIndexExclusive; i++) {
             if (arr1[i] != arr2[i]) {
+                System.out.println("Heap does not match expected array at index " + i +
+                    ". Got " + arr2[i] + " instead of " + arr1[i]);
                 return false;
             }
         }
@@ -74,15 +76,21 @@ public class MyTests {
         test.deleteMin();
         test.deleteMin();
         test.deleteMin();
+        test.insert(3);
+        test.insert(4);
+        test.insert(5);
+        test.insert(6);
         // --------------------------
         // Test 3: Change (trickle up)
         // --------------------------
         // Then change values of other nodes that trickle up
         test.change(5, 2);
+        test.print();
         int[] EXPECTED = new int[] {2, 4, 3, 8, 7, 9, 6};
         assertTrue(arrayEqualsUpTo(EXPECTED.length, EXPECTED, test.arr));
 
         test.change(7, 1);
+        test.print();
         EXPECTED = new int[] {1, 2, 3, 8, 4, 9, 6};
         assertTrue(arrayEqualsUpTo(EXPECTED.length, EXPECTED, test.arr));
     }
@@ -99,6 +107,10 @@ public class MyTests {
         test.deleteMin();
         test.deleteMin();
         test.deleteMin();
+        test.insert(3);
+        test.insert(4);
+        test.insert(5);
+        test.insert(6);
         test.change(5, 2);
         test.change(7, 1);
         // --------------------------
