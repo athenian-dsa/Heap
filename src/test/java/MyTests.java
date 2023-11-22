@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MyTests {
-    public static boolean arrayEqualsUpTo(int lastIndexExclusive, int[] arr1, int[] arr2) {
+    private static boolean arrayEqualsUpTo(int lastIndexExclusive, int[] arr1, int[] arr2) {
         for (int i = 0; i < lastIndexExclusive; i++) {
             if (arr1[i] != arr2[i]) {
                 System.out.println("Heap does not match expected array at index " + i +
